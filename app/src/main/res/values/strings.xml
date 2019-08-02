@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Bhaisarjya</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="titlename">Bhaisarjya</string>
+    <string name="abou">AboutUs</string>
+    <string name="desc">hello everyone i am very greatefull \nto present this \napp to you   guyz</string>
+    <string name="distributor">Distributor:</string>
+    <string name="medicine_list">Medicine list:</string>
+    <string name="bill_type">Bill Type:</string>
+    <string name="confirm">Confirm</string>
+    <string name="patient_name">Patient Name:</string>
+</resources>
