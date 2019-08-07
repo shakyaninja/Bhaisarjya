@@ -28,8 +28,7 @@ public class Medicines extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview_medicines);
-
+        mRecyclerView = view.findViewById(R.id.recyclerview_medicines);
         new FirebaseDatabaseHelper().readMedicines(new FirebaseDatabaseHelper.DataStatus() {
             @Override
             public void DataIsLoaded(List<Medicine> medicines, List<String> Keys) {
@@ -51,5 +50,5 @@ public class Medicines extends Fragment {
 
             }
         });
-    }
+   }
 }

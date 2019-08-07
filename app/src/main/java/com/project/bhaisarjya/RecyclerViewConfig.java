@@ -5,16 +5,16 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.project.bhaisarjya.adapters.MedicineAdapter;
 import com.project.bhaisarjya.modal.Medicine;
 
 import java.util.List;
 
 public class RecyclerViewConfig {
-    private static Context mContext;
+    private Context mContext;
     private MedicineAdapter mMedicineAdapter;
 
     public void setConfig(RecyclerView recyclerView, Context context,List<Medicine> medicines,List<String> keys){
@@ -24,7 +24,7 @@ public class RecyclerViewConfig {
         recyclerView.setAdapter(mMedicineAdapter);
     }
 
-    public static class MedicineItemView extends RecyclerView.ViewHolder {
+    public class MedicineItemView extends RecyclerView.ViewHolder {
         private TextView mName;
         private TextView mCategory;
         private TextView mComposition;
@@ -52,4 +52,31 @@ public class RecyclerViewConfig {
 
         }
     }
+
+    public class MedicineAdapter extends RecyclerView.Adapter<MedicineItemView> {
+        private List<Medicine> mMedicineList;
+        private List<String> mKeys;
+
+        public MedicineAdapter(List<Medicine> mMedicineList, List<String> mKeys) {
+            this.mMedicineList = mMedicineList;
+            this.mKeys = mKeys;
+        }
+
+        @NonNull
+        @Override
+        public RecyclerViewConfig.MedicineItemView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new MedicineItemView(parent);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull RecyclerViewConfig.MedicineItemView holder, int position) {
+            holder.bind(mMedicineList.get(position), mKeys.get(position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return mMedicineList.size();
+        }
+    }
+
 }
